@@ -1,8 +1,6 @@
 package fr.parisnanterre.miage.rps.model;
 
-public class RockPaperScissors {
-
-   public RockPaperScissors()   {}
+   public class RockPaperScissors {
 
     enum RPSEnum{ROCK, PAPER, SCISSORS};
     enum Result{WIN, LOST, TIE};

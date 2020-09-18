@@ -8,11 +8,11 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
 
     implementation 'org.testng:testng:6.14.3'
-    implementation 'org.testng:testng:6.14.3'
-    testCompile group: 'org.testng', name: 'testng', version: '7.3.0'
+    testCompile  'org.testng:testng: 6.10'
 }
