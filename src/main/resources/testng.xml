@@ -1,0 +1,17 @@
+<?xml version =" 1. 0 " encoding ="UTF−8"? >
+<!DOCTYPE suite SYSTEM " h t t p : / / tes tng . org / tes tng −1. 0. d td " >
+< suite name ="RPS" verbose ="1" >
+    < parameter name ="paper " value ="PAPER" / >
+    < parameter name =" rock " value ="ROCK" / >
+    <parameter name =" rock " value ="SCISSORS" / >
+    <test name =" tes tWinPlay " >
+        < classes >
+            < class name =" f r . p10 . miage . rps . t e s t . TestRockPapersScissors " >
+                < methods >
+                    < include name =" tes tWinPlay " ></ include >
+                </ methods >
+            </ class >
+        </ classes >
+    </ test >
+</ suite >
+       
