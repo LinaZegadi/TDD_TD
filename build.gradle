@@ -1,4 +1,5 @@
 plugins {
+    id 'groovy'
     id 'java'
 }
 
@@ -16,6 +17,9 @@ repositories {
 }
 
 dependencies {
+    compile "org.codehaus.groovy:groovy:2.5.13"
+    testCompile platform("org.spockframework:spock-bom:2.0-M3-groovy-2.5")
+    testCompile "org.spockframework:spock-core"
 
     implementation 'org.testng:testng:6.14.3'
     testCompile  'org.testng:testng: 6.10'
