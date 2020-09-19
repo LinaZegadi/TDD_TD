@@ -25,7 +25,7 @@ public class RockPaperScissorsTest {
 
     @Parameters({"papier" ,"pierre"})
     @Test
-    public void testPlay(String p1, String p2) {
+    public void testWinPlay(String p1, String p2) {
         assertEquals(rps.play(RockPaperScissors.RPSEnum.valueOf(p1), RockPaperScissors.RPSEnum.valueOf(p2)), RockPaperScissors.Result.WIN);
 
     }
@@ -40,12 +40,26 @@ public class RockPaperScissorsTest {
 
     @Parameters ({ "papier" ," ciseaux" })
     @Test
-    public void testLostPlay(RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
+    public void testLostPlay(String p1, String p2)
     {
-        assertEquals(rps.play(p1, p2), RockPaperScissors.Result.LOST);
+        assertEquals(rps.play(RockPaperScissors.RPSEnum.valueOf(p1), RockPaperScissors.RPSEnum.valueOf(p2)), RockPaperScissors.Result.LOST);
 
     }
-    //@DataProvider
+    @Test (dataProvider = "winData")
+    public void testWinPlay (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
+    {
 
+    }
+
+    @Test (dataProvider = "tieData")
+    public void testTiePlay (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
+    {
+
+    }
+    @Test (dataProvider = "lostData")
+    public void testLostPlay (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
+    {
+
+    }
 
 }
