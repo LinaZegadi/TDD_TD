@@ -2,16 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng−1.0.dtd">
 
 <suite name ="RPS" verbose ="1" >
-    <parameter name ="papier " value ="papier"/>
-    <parameter name ="pierre " value ="pierre"/>
-    <parameter name ="pierre " value ="ciseaux"/>
+    <parameter name ="papier " value ="PAPER"/>
+    <parameter name ="pierre " value ="ROCK"/>
+    <parameter name ="ciseaux " value ="SCISSORS"/>
 
     <test name = "tes tWinPlay" >
         <classes >
 
             <class name ="fr.parisnanterre.miage.rps.model.RockPaperScissorsTest" >
                 <methods >
-                    <include name =" tes tWinPlay " > </ include >
+                    <include name =" testWinPlay " > </ include >
                 </ methods >
             </ class >
 

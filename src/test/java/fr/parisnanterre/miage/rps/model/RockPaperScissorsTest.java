@@ -1,9 +1,6 @@
 package fr.parisnanterre.miage.rps.model;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -11,13 +8,13 @@ public class RockPaperScissorsTest {
 
      RockPaperScissors rps;
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp()
     {
         rps = new RockPaperScissors();
     }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown()
     {
         rps = null;
@@ -30,15 +27,15 @@ public class RockPaperScissorsTest {
 
     }
 
-    @Parameters ({"ciseaux", "papier", "ciseaux", "papier"})
+   @Parameters ({"papier", "papier"})
     @Test
     public void testTiePlay(String p1, String p2)
     {
-        assertEquals(rps.play(RockPaperScissors.RPSEnum.valueOf(p1), RockPaperScissors.RPSEnum.valueOf(p2)), RockPaperScissors.Result.WIN);
+        assertEquals(rps.play(RockPaperScissors.RPSEnum.valueOf(p1), RockPaperScissors.RPSEnum.valueOf(p2)), RockPaperScissors.Result.TIE);
 
     }
 
-    @Parameters ({ "papier" ," ciseaux" })
+    @Parameters ({"ciseaux","papier"})
     @Test
     public void testLostPlay(String p1, String p2)
     {
