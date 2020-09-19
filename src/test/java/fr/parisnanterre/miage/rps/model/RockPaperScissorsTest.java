@@ -35,28 +35,54 @@ public class RockPaperScissorsTest {
 
     }
 
-    @Parameters ({"ciseaux","papier"})
+    @Parameters ({"papier","ciseaux"})
     @Test
     public void testLostPlay(String p1, String p2)
     {
         assertEquals(rps.play(RockPaperScissors.RPSEnum.valueOf(p1), RockPaperScissors.RPSEnum.valueOf(p2)), RockPaperScissors.Result.LOST);
 
     }
-    @Test (dataProvider = "winData")
-    public void testWinPlay (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
+    @DataProvider(name = "winData")
+    public Object[][] createWinPlay()
     {
+        return new Object[][]{{RockPaperScissors.RPSEnum.ROCK,RockPaperScissors.RPSEnum.SCISSORS},{RockPaperScissors.RPSEnum.SCISSORS,RockPaperScissors.RPSEnum.PAPER},{RockPaperScissors.RPSEnum.PAPER,RockPaperScissors.RPSEnum.ROCK}};
+    }
 
+    @Test (dataProvider = "winData")
+    public void testWinPlayProvider (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
+    {
+        assertEquals(rps.play(p1,p2), RockPaperScissors.Result.WIN);
+
+    }
+
+
+    @DataProvider(name = "tieData")
+    public Object[][] createTiePlay()
+    {
+        return new Object[][]{{RockPaperScissors.RPSEnum.ROCK,RockPaperScissors.RPSEnum.ROCK},{RockPaperScissors.RPSEnum.SCISSORS,RockPaperScissors.RPSEnum.SCISSORS},{RockPaperScissors.RPSEnum.PAPER,RockPaperScissors.RPSEnum.PAPER}};
     }
 
     @Test (dataProvider = "tieData")
-    public void testTiePlay (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
+    public void testTiePlayProvider (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
     {
+        assertEquals(rps.play(p1,p2), RockPaperScissors.Result.TIE);
 
     }
+
+
+    @DataProvider(name = "lostData")
+    public Object[][] createLostPlay()
+    {
+        return new Object[][]{{RockPaperScissors.RPSEnum.SCISSORS,RockPaperScissors.RPSEnum.ROCK},{RockPaperScissors.RPSEnum.PAPER,RockPaperScissors.RPSEnum.SCISSORS},{RockPaperScissors.RPSEnum.ROCK,RockPaperScissors.RPSEnum.PAPER}};
+    }
+
     @Test (dataProvider = "lostData")
-    public void testLostPlay (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
+    public void testLostPlayProvider (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
     {
+        assertEquals(rps.play(p1,p2), RockPaperScissors.Result.LOST);
 
     }
+
+
 
 }
