@@ -1,10 +1,8 @@
 package fr.parisnanterre.miage.rps.model;
 
 import org.testng.annotations.*;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.testng.AssertJUnit.assertEquals;
 
 public class RockPaperScissorsTest {
@@ -41,20 +39,20 @@ public class RockPaperScissorsTest {
     {
         m.add(RockPaperScissors.RPSEnum.ROCK);
         m.add(RockPaperScissors.RPSEnum.PAPER);
-        m.add(RockPaperScissors.RPSEnum.PAPER);
+        m.add(RockPaperScissors.RPSEnum.SCISSORS);
     }
 
     private void assingLost(List<RockPaperScissors.RPSEnum> m)
     {
-        m.add(RockPaperScissors.RPSEnum.SCISSORS);
         m.add(RockPaperScissors.RPSEnum.ROCK);
         m.add(RockPaperScissors.RPSEnum.PAPER);
+        m.add(RockPaperScissors.RPSEnum.SCISSORS);
     }
+
     @Parameters({"papier" ,"pierre"})
     @Test
     public void testWinPlay(String p1, String p2) {
         assertEquals(rps.play(RockPaperScissors.RPSEnum.valueOf(p1), RockPaperScissors.RPSEnum.valueOf(p2)), RockPaperScissors.Result.WIN);
-
     }
 
    @Parameters ({"papier", "papier"})
@@ -72,12 +70,13 @@ public class RockPaperScissorsTest {
         assertEquals(rps.play(RockPaperScissors.RPSEnum.valueOf(p1), RockPaperScissors.RPSEnum.valueOf(p2)), RockPaperScissors.Result.LOST);
 
     }
+    //Data Provider
+    //Win
     @DataProvider(name = "winData")
     public Object[][] createWinPlay()
     {
         return new Object[][]{{RockPaperScissors.RPSEnum.ROCK,RockPaperScissors.RPSEnum.SCISSORS},{RockPaperScissors.RPSEnum.SCISSORS,RockPaperScissors.RPSEnum.PAPER},{RockPaperScissors.RPSEnum.PAPER,RockPaperScissors.RPSEnum.ROCK}};
     }
-
     @Test (dataProvider = "winData")
     public void testWinPlayProvider (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
     {
@@ -85,13 +84,12 @@ public class RockPaperScissorsTest {
 
     }
 
-
+    //Tie
     @DataProvider(name = "tieData")
     public Object[][] createTiePlay()
     {
         return new Object[][]{{RockPaperScissors.RPSEnum.ROCK,RockPaperScissors.RPSEnum.ROCK},{RockPaperScissors.RPSEnum.SCISSORS,RockPaperScissors.RPSEnum.SCISSORS},{RockPaperScissors.RPSEnum.PAPER,RockPaperScissors.RPSEnum.PAPER}};
     }
-
     @Test (dataProvider = "tieData")
     public void testTiePlayProvider (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
     {
@@ -99,13 +97,12 @@ public class RockPaperScissorsTest {
 
     }
 
-
+    //Lost
     @DataProvider(name = "lostData")
     public Object[][] createLostPlay()
     {
         return new Object[][]{{RockPaperScissors.RPSEnum.SCISSORS,RockPaperScissors.RPSEnum.ROCK},{RockPaperScissors.RPSEnum.PAPER,RockPaperScissors.RPSEnum.SCISSORS},{RockPaperScissors.RPSEnum.ROCK,RockPaperScissors.RPSEnum.PAPER}};
     }
-
     @Test (dataProvider = "lostData")
     public void testLostPlayProvider (RockPaperScissors.RPSEnum p1, RockPaperScissors.RPSEnum p2)
     {
