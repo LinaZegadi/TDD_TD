@@ -2,18 +2,15 @@ package fr.parisnanterre.miage.rps.model;
 
    public class RockPaperScissors {
 
-       enum RPSEnum {ROCK, PAPER, SCISSORS}
+       enum RPSEnum {ROCK, PAPER, SCISSORS};
 
-       ;
+       enum Result {WIN, LOST, TIE};
 
-       enum Result {WIN, LOST, TIE}
+       public RockPaperScissors()
+       {}
 
-       ;
-
-       public RockPaperScissors() {
-       }
-
-       public Result play(RPSEnum p1, RPSEnum p2) {
+       public Result play(RPSEnum p1, RPSEnum p2)
+       {
            if (p1 == p2)
                return Result.TIE;
 
@@ -24,23 +21,24 @@ package fr.parisnanterre.miage.rps.model;
 
        }
 
-       Result play(Player p1, Player p2) {
+       Result play(Player p1, Player p2)
+       {
 
            Result round;
 
            for (int i = 0; i < p1.getMove(); i++)
            {
                round = play(p1.NextMove(), p2.NextMove());
-
+               //Si p1 WIN
                if(round == Result.WIN)
                     p1.setScore(p1.getScore()+1);
-
-               else if(round == Result.WIN)
+               //Si p1 = p2
+               else if(round == Result.TIE)
                {
                    p1.setScore(p1.getScore() + 1);
                    p2.setScore(p2.getScore() + 1);
                }
-
+               //Si p2 WIN
                else
                    p2.setScore(p2.getScore() + 1);
            }

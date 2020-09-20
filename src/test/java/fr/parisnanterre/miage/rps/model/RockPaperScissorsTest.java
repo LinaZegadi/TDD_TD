@@ -22,6 +22,7 @@ public class RockPaperScissorsTest {
 
         assingWin(WinMouv);
         assingLost(LostMouv);
+
         player1 = new Player("player1",WinMouv);
         player2 = new Player("player2",LostMouv);
         player3 = new Player("player3",WinMouv);
@@ -31,6 +32,7 @@ public class RockPaperScissorsTest {
     public void tearDown()
     {
         rps = null;
+        //Liberer les ressources
         player1 = null;
         player2 = null;
     }
